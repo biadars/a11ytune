@@ -1,3 +1,30 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react/recommended",
+    "plugin:security/recommended-legacy",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "prettier",
+    "plugin:jsx-no-leaked-values/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "check-file",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "no-console": "error"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "project": [
+      "./tsconfig.json"
+    ],
+    "sourceType": "module"
+  }
 }

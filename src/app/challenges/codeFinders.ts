@@ -1,0 +1,14 @@
+export const findAllTextComponents = (code: string) => {
+  return code.match(/<Text.*?>[\s?\S]*?<\/Text>/gm) ?? [];
+};
+
+export const findAllListComponents = (code: string) => {
+  return code.match(/<FlatList[\s\S]*?\/>/gm) ?? [];
+};
+
+export const findAllButtonComponents = (code: string) => {
+  return (
+    code.match(/<TouchableOpacity[\s\S]*?>[\s?\S]*?<\/TouchableOpacity>/gm) ??
+    []
+  );
+};
