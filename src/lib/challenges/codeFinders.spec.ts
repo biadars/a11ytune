@@ -3,7 +3,7 @@ import {
   findAllButtonComponents,
   findAllListComponents,
   findAllTextComponents
-} from '@/app/challenges/codeFinders';
+} from '@/lib/challenges/codeFinders';
 
 describe('codeFinders', () => {
   describe('findAllTextComponents', () => {

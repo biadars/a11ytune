@@ -6,7 +6,7 @@ import {
   containsHeadingRole,
   containsLinkRole,
   containsButtonRole
-} from '@/app/challenges/challenge-1/steps';
+} from '@/lib/challenges/challenge-1/steps';
 
 const challenge: Challenge = {
   index: 1,

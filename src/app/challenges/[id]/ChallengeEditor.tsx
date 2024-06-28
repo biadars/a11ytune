@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Snack } from 'snack-sdk';
-import { useChallenges } from '@/app/challenges/useChallenges';
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import EditorTools from '@/app/components/EditorTools';
-import SnackLink from '@/app/components/SnackLink';
+import EditorTools from '@/app/challenges/[id]/EditorTools';
+import SnackLink from '@/app/challenges/[id]/SnackLink';
+import { Challenge } from '@/lib/challenges/challenge';
 
 const INITIAL_CODE_CHANGE_DELAY = 500;
 
-export default function ChallengeEditor() {
-  const { currentChallenge } = useChallenges();
+export default function ChallengeEditor({challenge}: {challenge: Challenge}) {
 
-  const [snack, setSnack] = useState(
+  const [snack] = useState(
     () =>
       new Snack({
-        ...currentChallenge?.challengeSnack,
+        ...challenge?.challengeSnack,
         codeChangesDelay: INITIAL_CODE_CHANGE_DELAY
       })
   );
@@ -32,19 +31,6 @@ export default function ChallengeEditor() {
         listener();
       });
   }, [snack]);
-
-  useEffect(() => {
-    console.log('updating to new snack')
-    setSnack(new Snack({
-      ...currentChallenge?.challengeSnack,
-      codeChangesDelay: INITIAL_CODE_CHANGE_DELAY
-    }));
-  }, [currentChallenge, setSnack]);
-
-  useEffect(() => {
-    console.log('running effect', files['App.tsx']);
-    setSnackState(snack.getState())
-  }, [snack, setSnackState]);
 
   const { files, online, url } = snackState;
 
@@ -65,7 +51,7 @@ export default function ChallengeEditor() {
         }
       />
       <div className=" w-full flex flex-row mt-10 justify-between min-h-60">
-        <EditorTools snack={snack} />
+        <EditorTools challenge={challenge} snack={snack} />
         <SnackLink isOnline={online} link={url} />
       </div>
     </div>

@@ -1,6 +1,6 @@
-import { Challenge } from '@/app/challenges/challenge';
-import initialCode from '@/app/challenges/challenge-1/initialCode';
-import dependencies from '@/app/challenges/challenge-1/dependencies';
+import { Challenge } from '@/lib/challenges/challenge';
+import dependencies from '@/lib/challenges/challenge-2/dependencies';
+import initialCode from '@/lib/challenges/challenge-2/initialCode';
 
 const challenge: Challenge = {
   index: 2,

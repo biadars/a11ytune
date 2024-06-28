@@ -1,25 +1,26 @@
-import { Button } from '@/app/components/Button';
+import { Button } from '@/app/(components)/Button';
 import React, { useState } from 'react';
 import { Snack } from 'snack-sdk';
-import { useChallenges } from '@/app/challenges/useChallenges';
-import { ChallengeStepResult } from '@/app/challenges/challenge';
+import { Challenge, ChallengeStepResult } from '@/lib/challenges/challenge';
 import { FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
-import { ChallengeCompleted } from '@/app/components/ChallengeCompleted';
+import { ChallengeCompleted } from '@/app/challenges/[id]/ChallengeCompleted';
+import getChallengeResults from '@/lib/challenges/getChallengeResults';
+import canProgressToNextChallenge from '@/lib/challenges/canProgressToNextChallenge';
 
 export type EditorToolsProperties = {
+  challenge: Challenge;
   snack: Snack;
 };
 
-export default function EditorTools({ snack }: EditorToolsProperties) {
-  const { currentChallenge, getChallengeResults, canProgressToNextChallenge } = useChallenges();
+export default function EditorTools({ challenge, snack }: EditorToolsProperties) {
   const [showTests, setShowTests] = useState(false);
   const [loadingTestResults, setLoadingTestResults] = useState(false);
   const [testResults, setTestResults] = useState<ChallengeStepResult[]>([]);
   const [showChallengeCompleted, setShowChallengeCompleted] = useState(false);
 
   const resetCode = () => {
-    const initialCode = currentChallenge?.challengeSnack?.files
-      ? (currentChallenge.challengeSnack.files['App.tsx'].contents as string)
+    const initialCode = challenge?.challengeSnack?.files
+      ? (challenge.challengeSnack.files['App.tsx'].contents as string)
       : '';
     snack.updateFiles({
       'App.tsx': {
@@ -30,16 +31,12 @@ export default function EditorTools({ snack }: EditorToolsProperties) {
   };
 
   const runTests = () => {
-    if (!currentChallenge) {
-      return;
-    }
-
     setShowTests(false);
     setLoadingTestResults(true);
 
     const code = snack.getState().files['App.tsx'].contents as string;
-    setTestResults(getChallengeResults(code));
-    setShowChallengeCompleted(canProgressToNextChallenge(code));
+    setTestResults(getChallengeResults(challenge, code));
+    setShowChallengeCompleted(canProgressToNextChallenge(challenge, code));
 
     setLoadingTestResults(false);
     setShowTests(true);
@@ -81,7 +78,7 @@ export default function EditorTools({ snack }: EditorToolsProperties) {
       </div>
       { true && (
         <div className="mt-5">
-          <ChallengeCompleted/>
+          <ChallengeCompleted challenge={challenge}/>
         </div>
       )}
     </div>

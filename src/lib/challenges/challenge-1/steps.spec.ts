@@ -4,7 +4,7 @@ import {
   containsButtonRole,
   containsHeadingRole,
   containsLinkRole
-} from '@/app/challenges/challenge-1/steps';
+} from '@/lib/challenges/challenge-1/steps';
 
 describe('steps', () => {
   describe('containsHeadingRole', () => {

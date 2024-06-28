@@ -19,4 +19,13 @@ module.exports = {
         );
         return config;
     },
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/challenges/1',
+                permanent: true,
+            }
+        ]
+    }
 }

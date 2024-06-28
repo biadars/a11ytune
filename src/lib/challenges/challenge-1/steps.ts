@@ -1,8 +1,8 @@
 import {
   findAllButtonComponents,
   findAllTextComponents
-} from '@/app/challenges/codeFinders';
-import { ChallengeStep } from '@/app/challenges/challenge';
+} from '@/lib/challenges/codeFinders';
+import { ChallengeStep } from '@/lib/challenges/challenge';
 
 const whoAreWeHasHeadingRole = (code: string) => {
   const textEntries = findAllTextComponents(code);
