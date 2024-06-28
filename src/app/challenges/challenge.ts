@@ -18,21 +18,3 @@ export type Challenge = {
   steps: ChallengeStep[];
 };
 
-export function runChallengeSteps(challenge: Challenge, code: string) {
-  const resultsToDisplay: ChallengeStepResult[] = [];
-  let foundError = false;
-  challenge.steps.forEach((step) => {
-    if (step.test(code)) {
-      if (!foundError) {
-        resultsToDisplay.push({ message: step.successMessage, passed: true });
-      }
-    } else {
-      if (!foundError) {
-        resultsToDisplay.push({ message: step.failureMessage, passed: false });
-      }
-      foundError = true;
-    }
-  });
-
-  return resultsToDisplay;
-}

@@ -3,8 +3,7 @@ import {
   containsAccessibilityHeadingRole,
   containsButtonRole,
   containsHeadingRole,
-  containsLinkRole,
-  containsListRole
+  containsLinkRole
 } from '@/app/challenges/challenge-1/steps';
 
 describe('steps', () => {
@@ -69,73 +68,6 @@ describe('steps', () => {
           `<Text accessibilityRole="heading">Who are we</Text>`
         )
       ).toBeTruthy();
-    });
-  });
-
-  describe('containsListRole', () => {
-    it('Returns false if there is no list', () => {
-      // then
-      expect(containsListRole.test(`<Text>Not a real list</Text>`)).toBeFalsy();
-    });
-
-    it('Returns false if the list has no role', () => {
-      // given
-      const list = `<FlatList
-          data={[
-            {key: 'Leeds'},
-            {key: 'Liverpool'},
-            {key: 'Manchester'}
-          ]}
-          renderItem={({item}) => <Text style={styles.bodyText}>{\`\\u2022 \${item.key}\`}</Text>}
-        />`;
-
-      // then
-      expect(containsListRole.test(list)).toBeFalsy();
-    });
-
-    it('Returns false if the list has a role but no accessibilityRole', () => {
-      // given
-      const list = `<FlatList role="list"
-          data={[
-            {key: 'Leeds'},
-            {key: 'Liverpool'},
-            {key: 'Manchester'}
-          ]}
-          renderItem={({item}) => <Text style={styles.bodyText}>{\`\\u2022 \${item.key}\`}</Text>}
-        />`;
-
-      // then
-      expect(containsListRole.test(list)).toBeFalsy();
-    });
-
-    it('Returns false if the list has an accessibilityRole but no role', () => {
-      // given
-      const list = `<FlatList accessibilityRole="list"
-          data={[
-            {key: 'Leeds'},
-            {key: 'Liverpool'},
-            {key: 'Manchester'}
-          ]}
-          renderItem={({item}) => <Text style={styles.bodyText}>{\`\\u2022 \${item.key}\`}</Text>}
-        />`;
-
-      // then
-      expect(containsListRole.test(list)).toBeFalsy();
-    });
-
-    it('Returns true if the list has both an accessibilityRole and role', () => {
-      // given
-      const list = `<FlatList role="list" accessibilityRole="list"
-          data={[
-            {key: 'Leeds'},
-            {key: 'Liverpool'},
-            {key: 'Manchester'}
-          ]}
-          renderItem={({item}) => <Text style={styles.bodyText}>{\`\\u2022 \${item.key}\`}</Text>}
-        />`;
-
-      // then
-      expect(containsListRole.test(list)).toBeTruthy();
     });
   });
 

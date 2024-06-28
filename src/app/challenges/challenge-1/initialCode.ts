@@ -13,18 +13,8 @@ export default () => {
         Hello, we're A11yTune! 👋
       </Text>
       <Text style={[styles.bodyText, styles.paragraph]}>
-        We're your friendly neighbourhood indie record store. Find us in the following locations:
+        We're your friendly neighbourhood indie record store.
       </Text>
-      <View style={styles.list}>
-        <FlatList
-          data={[
-            {key: 'Leeds'},
-            {key: 'Liverpool'},
-            {key: 'Manchester'}
-          ]}
-          renderItem={({item}) => <Text style={styles.bodyText}>{\`\\u2022 \${item.key}\`}</Text>}
-        />
-      </View>
       <Text style={[styles.bodyText, styles.paragraph]}>
         You can find out more about our mission 
       </Text>
@@ -68,9 +58,6 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     marginTop: 20,
-  },
-  list: {
-    marginTop: 10
   },
   link: {
     color: 'blue'

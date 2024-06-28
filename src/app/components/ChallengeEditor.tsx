@@ -8,9 +8,9 @@ import SnackLink from '@/app/components/SnackLink';
 const INITIAL_CODE_CHANGE_DELAY = 500;
 
 export default function ChallengeEditor() {
-  const currentChallenge = useChallenges();
+  const { currentChallenge } = useChallenges();
 
-  const [snack] = useState(
+  const [snack, setSnack] = useState(
     () =>
       new Snack({
         ...currentChallenge?.challengeSnack,
@@ -32,6 +32,19 @@ export default function ChallengeEditor() {
         listener();
       });
   }, [snack]);
+
+  useEffect(() => {
+    console.log('updating to new snack')
+    setSnack(new Snack({
+      ...currentChallenge?.challengeSnack,
+      codeChangesDelay: INITIAL_CODE_CHANGE_DELAY
+    }));
+  }, [currentChallenge, setSnack]);
+
+  useEffect(() => {
+    console.log('running effect', files['App.tsx']);
+    setSnackState(snack.getState())
+  }, [snack, setSnackState]);
 
   const { files, online, url } = snackState;
 

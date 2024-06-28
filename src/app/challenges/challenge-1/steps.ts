@@ -1,6 +1,5 @@
 import {
   findAllButtonComponents,
-  findAllListComponents,
   findAllTextComponents
 } from '@/app/challenges/codeFinders';
 import { ChallengeStep } from '@/app/challenges/challenge';
@@ -19,15 +18,6 @@ const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
     entry.includes('Who are we')
   );
   return !!findUsHeading?.match(/accessibilityRole={?["']heading["']}?/gm);
-};
-
-const locationListHasListRole = (code: string) => {
-  const listEntries = findAllListComponents(code);
-  return (
-    listEntries.length === 1 &&
-    !!listEntries[0].match(/role={?["']list["']}?/gm) &&
-    !!listEntries[0].match(/accessibilityRole={?["']list["']}?/gm)
-  );
 };
 
 const hereHasLinkRole = (code: string) => {
@@ -59,12 +49,6 @@ export const containsAccessibilityHeadingRole: ChallengeStep = {
   successMessage: 'Found heading accessibility role',
   failureMessage: 'Could not find heading accessibility role',
   test: whoAreWeHasHeadingAccessibilityRole
-};
-
-export const containsListRole: ChallengeStep = {
-  successMessage: 'Found location list',
-  failureMessage: 'Could not find location list',
-  test: locationListHasListRole
 };
 
 export const containsLinkRole: ChallengeStep = {

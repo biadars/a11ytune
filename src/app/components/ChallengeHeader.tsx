@@ -2,7 +2,7 @@ import { useChallenges } from '../challenges/useChallenges';
 import React from 'react';
 
 export default function ChallengeHeader() {
-  const currentChallenge = useChallenges();
+  const { currentChallenge } = useChallenges();
 
   return (
     <div className=" flex mb-5 justify-start">
