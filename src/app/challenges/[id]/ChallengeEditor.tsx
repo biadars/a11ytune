@@ -7,8 +7,11 @@ import { Challenge } from '@/lib/challenges/challenge';
 
 const INITIAL_CODE_CHANGE_DELAY = 500;
 
-export default function ChallengeEditor({challenge}: {challenge: Challenge}) {
-
+export default function ChallengeEditor({
+  challenge
+}: {
+  challenge: Challenge;
+}) {
   const [snack] = useState(
     () =>
       new Snack({

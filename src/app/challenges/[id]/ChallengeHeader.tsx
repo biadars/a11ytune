@@ -1,8 +1,11 @@
 import React from 'react';
 import { Challenge } from '@/lib/challenges/challenge';
 
-export default function ChallengeHeader({challenge} : {challenge: Challenge}) {
-
+export default function ChallengeHeader({
+  challenge
+}: {
+  challenge: Challenge;
+}) {
   return (
     <div className=" flex mb-5 justify-start">
       <h2>

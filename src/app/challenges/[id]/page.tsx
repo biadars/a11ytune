@@ -4,7 +4,7 @@ import React from 'react';
 import ChallengeHeader from '@/app/challenges/[id]/ChallengeHeader';
 import fetchChallengeById from '@/lib/challenges/fetchChallengeById';
 
-export default function Home({params}: { params: { id: string } }) {
+export default function Home({ params }: { params: { id: string } }) {
   // const codeContainsAccessibilityLabel = useMemo(() => {
   //     return (files['App.tsx'].contents as string).includes('accessibilityLabel')
   // }, [files])
@@ -17,8 +17,8 @@ export default function Home({params}: { params: { id: string } }) {
       </header>
       <main className="flex min-h-screen flex-col items-center justify-between p-10 bg-cyan-950 text-gray-100 font-mono">
         <div className="w-2/3">
-          <ChallengeHeader challenge={challenge}/>
-          <ChallengeEditor challenge={challenge}/>
+          <ChallengeHeader challenge={challenge} />
+          <ChallengeEditor challenge={challenge} />
 
           {/*<div className="z-10 max-w-5xl w-full flex flex-row items-center min-h-20">*/}
           {/*    Your code {codeContainsAccessibilityLabel ? 'is': 'is not'} accessible*/}

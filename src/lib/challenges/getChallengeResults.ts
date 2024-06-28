@@ -1,6 +1,9 @@
 import { Challenge, ChallengeStepResult } from '@/lib/challenges/challenge';
 
-export default function getChallengeResults(challenge: Challenge, code: string): ChallengeStepResult[] {
+export default function getChallengeResults(
+  challenge: Challenge,
+  code: string
+): ChallengeStepResult[] {
   const resultsToDisplay: ChallengeStepResult[] = [];
   let foundError = false;
 

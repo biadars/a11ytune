@@ -12,7 +12,10 @@ export type EditorToolsProperties = {
   snack: Snack;
 };
 
-export default function EditorTools({ challenge, snack }: EditorToolsProperties) {
+export default function EditorTools({
+  challenge,
+  snack
+}: EditorToolsProperties) {
   const [showTests, setShowTests] = useState(false);
   const [loadingTestResults, setLoadingTestResults] = useState(false);
   const [testResults, setTestResults] = useState<ChallengeStepResult[]>([]);
@@ -76,9 +79,9 @@ export default function EditorTools({ challenge, snack }: EditorToolsProperties)
             );
           })}
       </div>
-      { true && (
+      {showChallengeCompleted && (
         <div className="mt-5">
-          <ChallengeCompleted challenge={challenge}/>
+          <ChallengeCompleted challenge={challenge} />
         </div>
       )}
     </div>

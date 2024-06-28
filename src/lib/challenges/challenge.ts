@@ -17,4 +17,3 @@ export type Challenge = {
   challengeSnack: SnackOptions;
   steps: ChallengeStep[];
 };
-
