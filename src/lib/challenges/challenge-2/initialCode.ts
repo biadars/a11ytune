@@ -37,11 +37,11 @@ type StoreSummaryProperties = {
 }
 
 const StoreSummary = ({store}: StoreSummaryProperties) => {  
-  return <TouchableOpacity>
+  return <TouchableOpacity role="link" accessibilityRole="link">
     <View style={styles.summaryCard}>
       <Text style={styles.storeName}>{store.name}</Text>
-      <Text style={styles.storeInfo}>{store.address}</Text>
-      <Text style={styles.storeInfo}>Open {store.openingHours}</Text>
+      <Text style={styles.storeInfo}>📍{store.address}</Text>
+      <Text style={styles.storeInfo}>⏰ {store.openingHours}</Text>
     </View>
   </TouchableOpacity>
 }
@@ -59,7 +59,10 @@ export default () => {
       <View style={styles.list}>
         <FlatList
           data={ALL_STORES}
-          renderItem={({item}: Store)  => <StoreSummary store={item}/>}
+          role="list"
+          accessibilityRole="list"
+          renderItem={({item}: Store)  => <StoreSummary store={item}
+          />}
         />
       </View>
     </View>

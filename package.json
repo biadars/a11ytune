@@ -9,7 +9,7 @@
     "lint": "eslint src && prettier -c src",
     "lint:fix": "eslint src --fix && prettier -w src",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "@radix-ui/react-accessible-icon": "^1.0.3",
