@@ -40,7 +40,7 @@ export default function ChallengeEditor({
   return (
     <div className="w-full">
       <CodeEditor
-        style={{ width: '100%', height: 1200 }}
+        style={{ width: '100%', height: 3500 }}
         title="Code"
         language="tsx"
         value={files['App.tsx'].contents as string}
