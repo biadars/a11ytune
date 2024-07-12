@@ -16,3 +16,7 @@ export const findAllButtonComponents = (code: string) => {
 export const findAllIconComponents = (code: string) => {
   return code.match(/<AntDesign[\s\S]*?\/>/gm) ?? [];
 };
+
+export const findAllTextInputs = (code: string) => {
+  return code.match(/<TextInput[\s\S]*?\/>/gm) ?? [];
+};
