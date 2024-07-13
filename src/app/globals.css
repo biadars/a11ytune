@@ -26,6 +26,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+p {
+  margin: 20px 0;
+}
+
+a {
+  color: #03fca1;
+}
+
+button {
+  color: #03fca1;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

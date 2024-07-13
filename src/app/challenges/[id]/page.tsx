@@ -5,9 +5,6 @@ import ChallengeHeader from '@/app/challenges/[id]/ChallengeHeader';
 import fetchChallengeById from '@/lib/challenges/fetchChallengeById';
 
 export default function Home({ params }: { params: { id: string } }) {
-  // const codeContainsAccessibilityLabel = useMemo(() => {
-  //     return (files['App.tsx'].contents as string).includes('accessibilityLabel')
-  // }, [files])
   const challenge = fetchChallengeById(parseInt(params.id));
 
   return (
