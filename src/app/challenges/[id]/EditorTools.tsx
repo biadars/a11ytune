@@ -46,9 +46,9 @@ export default function EditorTools({
   };
 
   return (
-    <div className="w-1/2 flex flex-col justify-items-start min-h-60">
+    <div className="w-8/12 flex flex-col justify-items-start min-h-60">
       <div className="mb-5">
-        <h3>Editor tools</h3>
+        <h3 className="text-lg">Editor tools</h3>
       </div>
       <div>
         <span className="mr-5">

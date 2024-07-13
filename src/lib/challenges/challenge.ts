@@ -14,6 +14,7 @@ export type ChallengeStepResult = {
 export type Challenge = {
   index: number;
   title: string;
+  description: string;
   challengeSnack: SnackOptions;
   steps: ChallengeStep[];
 };

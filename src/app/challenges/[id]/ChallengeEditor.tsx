@@ -39,6 +39,11 @@ export default function ChallengeEditor({
 
   return (
     <div className="w-full">
+      <p>{challenge.description}</p>
+      <div className=" w-full flex flex-row mt-10 justify-between min-h-60">
+        <EditorTools challenge={challenge} snack={snack} />
+        <SnackLink isOnline={online} link={url} />
+      </div>
       <CodeEditor
         style={{ width: '100%', height: 3500 }}
         title="Code"
@@ -53,10 +58,6 @@ export default function ChallengeEditor({
           })
         }
       />
-      <div className=" w-full flex flex-row mt-10 justify-between min-h-60">
-        <EditorTools challenge={challenge} snack={snack} />
-        <SnackLink isOnline={online} link={url} />
-      </div>
     </div>
   );
 }

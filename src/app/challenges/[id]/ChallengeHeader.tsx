@@ -8,7 +8,7 @@ export default function ChallengeHeader({
 }) {
   return (
     <div className=" flex mb-5 justify-start">
-      <h2>
+      <h2 className="text-xl">
         Challenge {challenge?.index}: {challenge?.title}
       </h2>
     </div>

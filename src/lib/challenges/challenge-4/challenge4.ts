@@ -11,6 +11,8 @@ import {
 const challenge: Challenge = {
   index: 4,
   title: 'Form feedback',
+  description:
+    "You'll likely implement some kind of form in your application sooner or later! Make sure labels and errors are clearly announced and associated with the right input.",
   steps: [
     placeholderNotBeingUsedAsLabelStep,
     textInputHasAccessibilityLabelStep,
