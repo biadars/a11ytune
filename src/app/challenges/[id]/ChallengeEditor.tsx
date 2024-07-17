@@ -5,7 +5,7 @@ import SnackLink from '@/app/challenges/[id]/SnackLink';
 import { Challenge } from '@/lib/challenges/challenge';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
-import { dracula, nord } from '@uiw/codemirror-themes-all';
+import { dracula } from '@uiw/codemirror-themes-all';
 
 const INITIAL_CODE_CHANGE_DELAY = 500;
 
