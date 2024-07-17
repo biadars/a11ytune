@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Snack } from 'snack-sdk';
-import CodeEditor from '@uiw/react-textarea-code-editor';
 import EditorTools from '@/app/challenges/[id]/EditorTools';
 import SnackLink from '@/app/challenges/[id]/SnackLink';
 import { Challenge } from '@/lib/challenges/challenge';
+import ReactCodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { dracula, nord } from '@uiw/codemirror-themes-all';
 
 const INITIAL_CODE_CHANGE_DELAY = 500;
 
@@ -44,19 +46,19 @@ export default function ChallengeEditor({
         <EditorTools challenge={challenge} snack={snack} />
         <SnackLink isOnline={online} link={url} />
       </div>
-      <CodeEditor
-        style={{ width: '100%', height: 3500 }}
-        title="Code"
-        language="tsx"
+      <ReactCodeMirror
         value={files['App.tsx'].contents as string}
-        onChange={(event) =>
+        extensions={[javascript({ jsx: true, typescript: true })]}
+        onChange={(value) =>
           snack.updateFiles({
             'App.tsx': {
               type: 'CODE',
-              contents: event.target.value
+              contents: value
             }
           })
         }
+        theme={dracula}
+        height="1000px"
       />
     </div>
   );

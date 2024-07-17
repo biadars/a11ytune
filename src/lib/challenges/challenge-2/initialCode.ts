@@ -1,5 +1,4 @@
-const initialCode = `
-export type Store = {
+const initialCode = `export type Store = {
   name: string;
   address: string;
   openingHours: string;

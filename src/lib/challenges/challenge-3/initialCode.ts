@@ -1,5 +1,4 @@
-const initialCode = `
-import { StyleSheet, TouchableOpacity, View, Text, FlatList } from 'react-native';
+const initialCode = `import { StyleSheet, TouchableOpacity, View, Text, FlatList } from 'react-native';
 import { useState } from 'react';
 import Constants from 'expo-constants';
 import { AntDesign } from '@expo/vector-icons';
