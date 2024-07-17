@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Snack } from 'snack-sdk';
 import EditorTools from '@/app/challenges/[id]/EditorTools';
-import SnackLink from '@/app/challenges/[id]/SnackLink';
 import { Challenge } from '@/lib/challenges/challenge';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
@@ -37,15 +36,11 @@ export default function ChallengeEditor({
       });
   }, [snack]);
 
-  const { files, online, url } = snackState;
+  const { files } = snackState;
 
   return (
     <div className="w-full">
       <p>{challenge.description}</p>
-      <div className=" w-full flex flex-row mt-10 justify-between min-h-60">
-        <EditorTools challenge={challenge} snack={snack} />
-        <SnackLink isOnline={online} link={url} />
-      </div>
       <ReactCodeMirror
         value={files['App.tsx'].contents as string}
         extensions={[javascript({ jsx: true, typescript: true })]}
@@ -59,6 +54,11 @@ export default function ChallengeEditor({
         }
         theme={dracula}
         height="1000px"
+      />
+      <EditorTools
+        challenge={challenge}
+        snack={snack}
+        snackState={snackState}
       />
     </div>
   );

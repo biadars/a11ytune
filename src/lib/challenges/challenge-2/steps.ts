@@ -53,7 +53,8 @@ export const accessibilityHintReferencesAction = (code: string) => {
   return (
     accessibilityHint.includes('opens') ||
     accessibilityHint.includes('shows') ||
-    accessibilityHint.includes('displays')
+    accessibilityHint.includes('displays') ||
+    accessibilityHint.includes('navigates')
   );
 };
 

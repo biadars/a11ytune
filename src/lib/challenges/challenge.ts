@@ -1,4 +1,5 @@
 import { SnackOptions } from 'snack-sdk';
+import React from 'react';
 
 export type ChallengeStep = {
   successMessage: string;
@@ -17,4 +18,5 @@ export type Challenge = {
   description: string;
   challengeSnack: SnackOptions;
   steps: ChallengeStep[];
+  renderExtraContent: () => React.JSX.Element;
 };
