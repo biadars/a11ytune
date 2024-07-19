@@ -9,7 +9,7 @@ const whoAreWeHasHeadingRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/role={?["']heading["']}?/gm);
+  return !!findUsHeading?.match(/role={?["']header["']}?/gm);
 };
 
 const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
@@ -17,7 +17,7 @@ const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/accessibilityRole={?["']heading["']}?/gm);
+  return !!findUsHeading?.match(/accessibilityRole={?["']header["']}?/gm);
 };
 
 const hereHasLinkRole = (code: string) => {
@@ -41,10 +41,11 @@ const browseHasButtonRole = (code: string) => {
 };
 
 export const containsHeadingRole: ChallengeStep = {
-  successMessage: "Found 'Who are we' heading",
-  failureMessage: "Could not find 'Who are we' heading",
+  successMessage: "Found 'Who are we' header",
+  failureMessage: "Could not find 'Who are we' header",
   test: whoAreWeHasHeadingRole
 };
+
 export const containsAccessibilityHeadingRole: ChallengeStep = {
   successMessage: 'Found heading accessibility role',
   failureMessage: 'Could not find heading accessibility role',
