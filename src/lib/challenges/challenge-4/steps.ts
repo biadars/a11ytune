@@ -12,10 +12,6 @@ const getPostCodeInput = (code: string) => {
 
   return allTextInputs[0];
 };
-const placeholderBeingUsedAsLabel = (code: string) => {
-  const postCodeInput = getPostCodeInput(code);
-  return !!postCodeInput?.match(/placeholder="Enter your postcode"/gm);
-};
 
 const getSeparateLabel = (code: string) => {
   const allTextComponents = findAllTextComponents(code);
@@ -25,18 +21,18 @@ const getSeparateLabel = (code: string) => {
 const textInputHasAccessibilityLabel = (code: string) => {
   const postCodeInput = getPostCodeInput(code);
   return !!postCodeInput?.match(
-    /accessibilityLabel=["'`]Enter your postcode["'`]/gm
+    /accessibilityLabel\s*=\s*["'`]Enter your postcode["'`]/gm
   );
 };
 
 const labelHiddenOnAndroidScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/importantForAccessibility=['"`]no["'`]/gm);
+  return !!label?.match(/importantForAccessibility\s*=\s*['"`]no["'`]/gm);
 };
 
 const labelHiddenOniOSScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/accessibilityElementsHidden=['"`]true['"`]/gm);
+  return !!label?.match(/accessibilityElementsHidden\s*=\s*['"`]true['"`]/gm);
 };
 
 const errorIsAnnouncedToScreenReader = (code: string) => {
@@ -71,7 +67,7 @@ export const placeholderNotBeingUsedAsLabelStep: ChallengeStep = {
     'Placeholder not being used as label, found separate label text.',
   failureMessage:
     'Placeholder is being used as label, could not find separate label text',
-  test: (code) => !placeholderBeingUsedAsLabel(code) && !!getSeparateLabel(code)
+  test: (code) => !!getSeparateLabel(code)
 };
 
 export const textInputHasAccessibilityLabelStep: ChallengeStep = {
