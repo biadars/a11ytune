@@ -40,25 +40,28 @@ const browseHasButtonRole = (code: string) => {
   );
 };
 
-export const containsHeadingRole: ChallengeStep = {
+export const containsHeaderRoleStep: ChallengeStep = {
   successMessage: "Found 'Who are we' header",
   failureMessage: "Could not find 'Who are we' header",
-  test: whoAreWeHasHeadingRole
+  test: (code) =>
+    whoAreWeHasHeadingRole(code) || whoAreWeHasHeadingAccessibilityRole(code)
 };
 
-export const containsAccessibilityHeadingRole: ChallengeStep = {
-  successMessage: 'Found heading accessibility role',
-  failureMessage: 'Could not find heading accessibility role',
-  test: whoAreWeHasHeadingAccessibilityRole
-};
+export const containsBothRoleAndAccessibilityRoleForHeaderStep: ChallengeStep =
+  {
+    successMessage: 'Header has both role and accessibility role',
+    failureMessage: 'Header does not have both role and accessibility role',
+    test: (code) =>
+      whoAreWeHasHeadingRole(code) && whoAreWeHasHeadingAccessibilityRole(code)
+  };
 
-export const containsLinkRole: ChallengeStep = {
+export const containsLinkRoleStep: ChallengeStep = {
   successMessage: 'Found link to more info',
   failureMessage: 'Could not find link to more info',
   test: hereHasLinkRole
 };
 
-export const containsButtonRole: ChallengeStep = {
+export const containsButtonRoleStep: ChallengeStep = {
   successMessage: "Found 'Browse our records' button",
   failureMessage: "Could not find 'Browse our records' button",
   test: browseHasButtonRole
