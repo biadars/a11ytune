@@ -9,7 +9,7 @@ const whoAreWeHasHeadingRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/role={?["']header["']}?/gm);
+  return !!findUsHeading?.match(/role\s*=\s*{?\s*["']header["']\s*}?/gm);
 };
 
 const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
@@ -17,15 +17,15 @@ const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/accessibilityRole={?["']header["']}?/gm);
+  return !!findUsHeading?.match(/accessibilityRole\s*=\s*{?\s*["']header["']\s*}?/gm);
 };
 
 const hereHasLinkRole = (code: string) => {
   const buttons = findAllButtonComponents(code);
   const hereLink = buttons.find((entry) => entry.includes('here'));
   return (
-    !!hereLink?.match(/role={?["']link["']}?/gm) &&
-    !!hereLink?.match(/accessibilityRole={?["']link["']}?/gm)
+    !!hereLink?.match(/role\s*=\s*{\s*?["']link["']\s*}?/gm) &&
+    !!hereLink?.match(/accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm)
   );
 };
 
@@ -35,8 +35,8 @@ const browseHasButtonRole = (code: string) => {
     entry.includes('Browse our records')
   );
   return (
-    !!browseButton?.match(/role={?["']button["']}?/gm) &&
-    !!browseButton?.match(/accessibilityRole={?["']button["']}?/gm)
+    !!browseButton?.match(/role\s*=\s*{?\s*["']button["']\s*}?/gm) &&
+    !!browseButton?.match(/accessibilityRole\s*=\s*{?\s*["']button["']\s*}?/gm)
   );
 };
 
