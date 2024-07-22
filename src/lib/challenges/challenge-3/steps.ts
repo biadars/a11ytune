@@ -12,7 +12,7 @@ const containsAccessibilityState = (code: string) => {
 
   const minusButton = allButtons[0];
   return !!minusButton?.match(
-    /accessibilityState={\s*{\s*disabled:\s*quantity\s*===\s*0\s*}\s*}/gm
+    /accessibilityState\s*=\s*{\s*\(?\s*{\s*disabled:\s*\(?\s*quantity\s*===\s*0\s*\)?\s*}\s*\)?\s*}/gm
   );
 };
 
