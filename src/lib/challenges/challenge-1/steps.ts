@@ -24,7 +24,7 @@ const hereHasLinkRole = (code: string) => {
   const buttons = findAllButtonComponents(code);
   const hereLink = buttons.find((entry) => entry.includes('here'));
   return (
-    !!hereLink?.match(/role\s*=\s*{\s*?["']link["']\s*}?/gm) &&
+    !!hereLink?.match(/role\s*=\s*{?\s*["']link["']\s*}?/gm) &&
     !!hereLink?.match(/accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm)
   );
 };

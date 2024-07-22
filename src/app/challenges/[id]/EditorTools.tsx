@@ -7,6 +7,7 @@ import { ChallengeCompleted } from '@/app/challenges/[id]/ChallengeCompleted';
 import getChallengeResults from '@/lib/challenges/getChallengeResults';
 import canProgressToNextChallenge from '@/lib/challenges/canProgressToNextChallenge';
 import SnackLink from '@/app/challenges/[id]/SnackLink';
+import HintBox from '@/app/challenges/[id]/HintBox';
 
 export type EditorToolsProperties = {
   challenge: Challenge;
@@ -65,6 +66,7 @@ export default function EditorTools({
               onClick={runTests}
             />
           </div>
+          <HintBox challenge={challenge}/>
           <div className="mt-5">
             {showTests &&
               testResults.map((step, index) => {
