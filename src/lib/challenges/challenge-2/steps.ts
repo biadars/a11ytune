@@ -4,7 +4,7 @@ import { ChallengeStep } from '@/lib/challenges/challenge';
 export const containsAnAccessibilityLabelForEachStore = (code: string) => {
   const allButtons = findAllButtonComponents(code);
   return allButtons.every((button) =>
-    button.match(/accessibilityLabel={?["'`].*["'`]}?/gm)
+    button.match(/accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm)
   );
 };
 
@@ -16,7 +16,7 @@ export const accessibilityLabelReferencesLocationAndOpeningTimes = (
     return false;
   }
   const storeButton = allButtons[0];
-  const allLabels = storeButton.match(/accessibilityLabel={?["'`].*["'`]}?/gm);
+  const allLabels = storeButton.match(/accessibilityLabel\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
   if (!allLabels) {
     return false;
   }
@@ -34,7 +34,7 @@ export const accessibilityLabelReferencesLocationAndOpeningTimes = (
 export const containsAccessibilityHintForEachStore = (code: string) => {
   const allButtons = findAllButtonComponents(code);
   return allButtons.every((button) =>
-    button.match(/accessibilityHint={?["'`].*["'`]}?/gm)
+    button.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm)
   );
 };
 
@@ -44,7 +44,7 @@ export const accessibilityHintReferencesAction = (code: string) => {
     return false;
   }
   const storeButton = allButtons[0];
-  const allHints = storeButton.match(/accessibilityHint={?["'`].*["'`]}?/gm);
+  const allHints = storeButton.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
   if (!allHints) {
     return false;
   }
