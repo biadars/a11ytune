@@ -21,18 +21,18 @@ const getSeparateLabel = (code: string) => {
 const textInputHasAccessibilityLabel = (code: string) => {
   const postCodeInput = getPostCodeInput(code);
   return !!postCodeInput?.match(
-    /accessibilityLabel\s*=\s*["'`]Enter your postcode["'`]/gm
+    /accessibilityLabel\s*=\s*{?\s*["'`]Enter your postcode["'`]\s*}?/gm
   );
 };
 
 const labelHiddenOnAndroidScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/importantForAccessibility\s*=\s*['"`]no["'`]/gm);
+  return !!label?.match(/importantForAccessibility\s*=\s*{?\s*['"`]no["'`]\s*}?/gm);
 };
 
 const labelHiddenOniOSScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/accessibilityElementsHidden\s*=\s*['"`]true['"`]/gm);
+  return !!label?.match(/accessibilityElementsHidden\s*=\s*{?\s*['"`]true['"`]\s*}?/gm);
 };
 
 const errorIsAnnouncedToScreenReader = (code: string) => {
