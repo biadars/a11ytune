@@ -5,7 +5,15 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default () => {
   const [postCode, setPostCode] = useState();
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState(false);
+
+  const validateForm = () => {
+    if (postCode === undefined || postCode === '') {
+      setFormError(true)
+    } else {
+      setFormError(false)
+    }
+  }
 
   return (<>
     <View style={styles.headerContainer}>
@@ -21,11 +29,11 @@ export default () => {
       <TouchableOpacity role="button"
                         accessibilityRole="button"
                         accessibilityHint="Tap to search for your address."
-                        onPress={() => setFormSubmitted(true)}
+                        onPress={validateForm}
                         style={styles.button}>
         <Text style={styles.buttonText}>Find my address</Text>
       </TouchableOpacity>
-      {formSubmitted && <View style={styles.error}>
+      {formError && <View style={styles.error}>
             <MaterialIcons name="error-outline" size={24} color="black" />
             <Text style={styles.errorText}>Could not find address, please check your postcode and try again.</Text>
           </View>}
