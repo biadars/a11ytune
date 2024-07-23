@@ -42,7 +42,7 @@ const RecordSummary = ({record}: RecordSummaryProperties) => {
         <Text style={styles.recordArtist}>{record.artist}</Text>
       </View>
       <View style={styles.quantityCounter}>
-        <TouchableOpacity style={styles.quantityButton}
+        <TouchableOpacity style={[styles.quantityButton, quantity === 0 && styles.disabledButton]}
                           onPress={() => setQuantity(quantity - 1)}
                           disabled={quantity === 0}
                           role="button"
@@ -164,6 +164,9 @@ quantityCounter: {
 quantityButton: {
   padding: 0,
   margin: 0
+},
+disabledButton: {
+  opacity: 0.5
 },
 quantity: {
   fontWeight: 'bold',
