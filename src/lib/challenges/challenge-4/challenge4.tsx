@@ -43,25 +43,6 @@ const hints: Hint[] = [
   {message: "Have a look through the React Native AMA Guidelines for forms.", link:"https://commerce.nearform.com/open-source/react-native-ama/guidelines/forms"}
 ]
 
-const renderHint = (hintIndex: number) => {
-  let hint;
-  if (hintIndex < hints.length && hintIndex >= 0) {
-    // eslint-disable-next-line security/detect-object-injection
-    hint = hints[hintIndex];
-  } else {
-    throw "Error: Hint index out of range"
-  }
-
-  return (
-    <>
-      <p>
-        {hint.message}
-        {hint.link && <a href={hint.link}> {hint.link}</a>}
-      </p>
-    </>
-  );
-};
-
 const challenge: Challenge = {
   index: 4,
   title: 'Form feedback',
@@ -73,8 +54,7 @@ const challenge: Challenge = {
     labelNotDuplicatedOnScreenReaderStep,
     errorIsAnnouncedToScreenReaderStep
   ],
-  numberOfHints: hints.length,
-  renderHint,
+  hints: hints,
   renderExtraContent,
   challengeSnack: {
     codeChangesDelay: 500,

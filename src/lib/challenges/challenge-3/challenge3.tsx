@@ -45,28 +45,9 @@ const hints: Hint[] = [
   {message: "This is the only challenge where you'll need to edit the CSS."},
   {message: "The CSS you will need to change is in the \"quantityButton\" styling."},
   {message: "The minus icon is wrapped in a transparent button, you want to make the button 48x48 pixels."},
-  {message: "The icon itself should still look the same. Have a look on your device, is your icon moving around?"},
+  {message: "The icon itself should still look the same. Have a look on your device, does your icon move when you edit the padding?"},
   {message: "You'll need to use the margin to counteract any padding you've added."}
 ]
-
-const renderHint = (hintIndex: number) => {
-  let hint;
-  if (hintIndex < hints.length && hintIndex >= 0) {
-    // eslint-disable-next-line security/detect-object-injection
-    hint = hints[hintIndex];
-  } else {
-    throw "Error: Hint index out of range"
-  }
-
-  return (
-    <>
-      <p>
-        {hint.message}
-        {hint.link && <a href={hint.link}> {hint.link}</a>}
-      </p>
-    </>
-  );
-};
 
 const challenge: Challenge = {
   index: 3,
@@ -79,8 +60,7 @@ const challenge: Challenge = {
     allIconsAre24By24Step,
     allButtonsAre48By48Step
   ],
-  numberOfHints: hints.length,
-  renderHint,
+  hints: hints,
   challengeSnack: {
     codeChangesDelay: 500,
     files: {

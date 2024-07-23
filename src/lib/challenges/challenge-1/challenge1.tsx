@@ -41,28 +41,9 @@ const renderExtraContent = () => {
 
 const hints: Hint[] = [
   {message: "Have a look at the \"Accessibility\" section of the React Native docs.", link:"https://reactnative.dev/docs/accessibility"},
-  {message: "There's two ways to describe a component to the screen reader. You may need to add both!"},
+  {message: "There's two ways to describe a component's role to the screen reader. You may need to add both!"},
   {message: "Have a look at all of the roles which a component could have. We want to make sure any we've used are described."}
 ]
-
-const renderHint = (hintIndex: number) => {
-  let hint;
-  if (hintIndex < hints.length && hintIndex >= 0) {
-    // eslint-disable-next-line security/detect-object-injection
-    hint = hints[hintIndex];
-  } else {
-    throw "Error: Hint index out of range"
-  }
-
-  return (
-    <>
-      <p>
-        {hint.message}
-        {hint.link && <a href={hint.link}> {hint.link}</a>}
-      </p>
-    </>
-  );
-};
 
 const challenge: Challenge = {
   index: 1,
@@ -76,8 +57,7 @@ const challenge: Challenge = {
     containsLinkRoleStep,
     containsButtonRoleStep
   ],
-  numberOfHints: hints.length,
-  renderHint,
+  hints: hints,
   challengeSnack: {
     codeChangesDelay: 500,
     files: {
