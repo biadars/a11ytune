@@ -38,7 +38,7 @@ const labelHiddenOniOSScreenReader = (code: string) => {
 const errorIsAnnouncedToScreenReader = (code: string) => {
   const matchingEffects =
     code.match(
-      /useEffect\(\s*\(\)\s*=>\s*{[\s\S]+\}\s*,\s*\[\s*formSubmitted\s*]\s*\)/gm
+      /useEffect\(\s*\(\)\s*=>\s*{[\s\S]+\}\s*,\s*\[\s*formError\s*]\s*\)/gm
     ) ?? [];
   if (matchingEffects.length < 1) {
     return false;
@@ -46,7 +46,7 @@ const errorIsAnnouncedToScreenReader = (code: string) => {
 
   const errorEffect = matchingEffects[0];
   const ifBlocks = errorEffect?.match(
-    /if\s*\(\s*formSubmitted\s*\)\s*\{[\s\S]+}/gm
+    /if\s*\(\s*formError\s*\)\s*\{[\s\S]+}/gm
   );
   if (!ifBlocks || ifBlocks.length < 1) {
     return false;
