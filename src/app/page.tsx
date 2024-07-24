@@ -55,10 +55,28 @@ export default function Home() {
             What do you need to get started
           </h2>
           <ul className="list-disc ml-5 mt-5 mb-10">
-            <li>A phone with Expo Go installed</li>
+            <li>A phone with
+              <a href="https://expo.dev/go"> Expo Go </a>
+              installed
+            </li>
             <li>
               Optionally some earphones if you&apos;d like to test screen reader
               features quietly
+            </li>
+          </ul>
+            <h2 className="font-bold font-mono text-gray-100 text-lg">
+              A couple of quick notes before you start
+            </h2>
+          <ul className="list-disc ml-5 mt-5 mb-10">
+            <li>
+              In each of the challenges, you&apos;ll need to make some edits to
+              code. Unfortunately, the built-in IDE won&apos;t alert you to any
+              errors in your code, but Expo Go will when you run the code on your
+              device.
+            </li>
+            <li>
+              If you&apos;re having issues getting the code to load in Expo Go,
+              quitting and restarting the Expo Go app usually sorts this out.
             </li>
           </ul>
           <Link
