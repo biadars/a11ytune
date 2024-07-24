@@ -40,7 +40,10 @@ const hints: Hint[] = [
   {message: "We don't want the screen reader to read out the label for the text input twice."},
   {message: "You can hide text elements from the screen reader to prevent duplication."},
   {message: "The React Native properties for hiding components are different on iOS and Android, so you'll need to handle both."},
-  {message: "Have a look through the React Native AMA Guidelines for forms.", link:"https://commerce.nearform.com/open-source/react-native-ama/guidelines/forms"}
+  {message: "Have a look through the React Native AMA Guidelines for forms.", link:"https://commerce.nearform.com/open-source/react-native-ama/guidelines/forms"},
+  {message: "When you submit the form empty the app displays an error. Would a screen reader be alerted that the error has appeared without navigating to it? Try running it on your phone to check."},
+  {message: "Can you make sure the user is alerted to the error on both Android and iOS? If you've come across \"accessibilityLiveRegion\", that only fixes the problem on Android. You might want to have a look at \"AccessibilityInfo\".", link: "https://reactnative.dev/docs/accessibilityinfo"},
+  {message: "Your solution should use a combination of the \"announceForAccessibility\" function and a \"useEffect\"."}
 ]
 
 const challenge: Challenge = {
