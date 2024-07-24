@@ -55,10 +55,8 @@ export default function Home() {
             What do you need to get started
           </h2>
           <ul className="list-disc ml-5 mt-5 mb-10">
-            <li>A phone with{' '}
-              <a href="https://expo.dev/go">
-                Expo Go
-              </a>{' '}
+            <li>A phone with
+              <a href="https://expo.dev/go"> Expo Go </a>
               installed
             </li>
             <li>
