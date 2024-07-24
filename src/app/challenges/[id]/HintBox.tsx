@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button } from '@/app/(components)/Button';
 import { Challenge, Hint } from '@/lib/challenges/challenge';
 
@@ -23,7 +23,9 @@ const renderHint = (hints: Hint[], hintIndex: number) => {
 
 export default function HintBox({ challenge }: { challenge: Challenge }) {
   const [hintIndex, setHintIndex] = useState<number | undefined>(undefined)
-  const maxHintIndex = challenge.hints.length - 1
+  const maxHintIndex = useMemo(() => {
+    return challenge.hints.length - 1
+  }, [challenge]);
 
   return (
     <div className="flex flex-row rounded border border-teal-900 p-3 mt-5 grid-cols-3">
