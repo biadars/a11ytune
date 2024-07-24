@@ -52,9 +52,14 @@ export const accessibilityHintReferencesAction = (code: string) => {
   const accessibilityHint = allHints[0].toLowerCase();
   return (
     accessibilityHint.includes('opens') ||
+    accessibilityHint.includes('will open') ||
     accessibilityHint.includes('shows') ||
+    accessibilityHint.includes('will show') ||
     accessibilityHint.includes('displays') ||
-    accessibilityHint.includes('navigates')
+    accessibilityHint.includes('will display') ||
+    accessibilityHint.includes('navigates') ||
+    accessibilityHint.includes('will navigate')||
+    accessibilityHint.includes('gives' && 'information')
   );
 };
 
