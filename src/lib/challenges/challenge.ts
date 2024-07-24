@@ -18,5 +18,11 @@ export type Challenge = {
   description: string;
   challengeSnack: SnackOptions;
   steps: ChallengeStep[];
+  hints: Hint[];
   renderExtraContent: () => React.JSX.Element;
 };
+
+export type Hint = {
+  message: string;
+  link?: string;
+}

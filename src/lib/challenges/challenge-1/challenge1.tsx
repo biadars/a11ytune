@@ -1,5 +1,5 @@
 import React from 'react';
-import { Challenge } from '../challenge';
+import { Challenge, Hint } from '../challenge';
 import dependencies from './dependencies';
 import initialCode from './initialCode';
 import {
@@ -39,6 +39,12 @@ const renderExtraContent = () => {
   );
 };
 
+const hints: Hint[] = [
+  {message: "Have a look at the \"Accessibility\" section of the React Native docs.", link:"https://reactnative.dev/docs/accessibility"},
+  {message: "There's two ways to describe a component's role to the screen reader. You may need to add both!"},
+  {message: "Have a look at all of the roles which a component could have. We want to make sure any we've used are described."}
+]
+
 const challenge: Challenge = {
   index: 1,
   title: 'What is it?',
@@ -51,6 +57,7 @@ const challenge: Challenge = {
     containsLinkRoleStep,
     containsButtonRoleStep
   ],
+  hints: hints,
   challengeSnack: {
     codeChangesDelay: 500,
     files: {

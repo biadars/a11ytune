@@ -1,5 +1,5 @@
 import React from 'react';
-import { Challenge } from '@/lib/challenges/challenge';
+import { Challenge, Hint } from '@/lib/challenges/challenge';
 import initialCode from '@/lib/challenges/challenge-3/initialCode';
 import dependencies from '@/lib/challenges/challenge-3/dependencies';
 import {
@@ -39,6 +39,16 @@ const renderExtraContent = () => {
   );
 };
 
+const hints: Hint[] = [
+  {message: "When the minus button is disabled, is there a non-visual cue to tell the user?"},
+  {message: "\"hitSlop\" isn't the most reliable method for increasing the size of buttons (more on this later!). Is there another way you can do this?"},
+  {message: "This is the only challenge where you'll need to edit the CSS."},
+  {message: "The CSS you will need to change is in the \"quantityButton\" styling."},
+  {message: "The minus icon is wrapped in a transparent button, you want to make the button 48x48 pixels."},
+  {message: "The icon itself should still look the same. Have a look on your device, does your icon move when you edit the padding?"},
+  {message: "You'll need to use the margin to counteract any padding you've added."}
+]
+
 const challenge: Challenge = {
   index: 3,
   title: 'Scaling it up!',
@@ -50,6 +60,7 @@ const challenge: Challenge = {
     allIconsAre24By24Step,
     allButtonsAre48By48Step
   ],
+  hints: hints,
   challengeSnack: {
     codeChangesDelay: 500,
     files: {

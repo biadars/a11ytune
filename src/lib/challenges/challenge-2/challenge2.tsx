@@ -1,5 +1,5 @@
 import React from 'react';
-import { Challenge } from '@/lib/challenges/challenge';
+import { Challenge, Hint } from '@/lib/challenges/challenge';
 import dependencies from '@/lib/challenges/challenge-2/dependencies';
 import initialCode from '@/lib/challenges/challenge-2/initialCode';
 import {
@@ -43,6 +43,14 @@ const renderExtraContent = () => {
     </>
   );
 };
+
+const hints: Hint[] = [
+  {message: "Have you looked at \"accessibilityLabel\"?"},
+  {message: "Try testing that your label is read out by a screen reader on a real device."},
+  {message: "Have you made sure the accessibility label is on an interactive component?"},
+  {message: "Have you added an \"accessibilityHint\" that describes what the button does?"}
+]
+
 const challenge: Challenge = {
   index: 2,
   title: 'What does it do?',
@@ -54,6 +62,7 @@ const challenge: Challenge = {
     allStoresHaveAccessibilityHints,
     accessibilityHintDescribesButtonAction
   ],
+  hints: hints,
   renderExtraContent,
   challengeSnack: {
     codeChangesDelay: 500,

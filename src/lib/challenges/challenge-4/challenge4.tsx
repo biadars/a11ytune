@@ -1,5 +1,5 @@
 import React from 'react';
-import { Challenge } from '@/lib/challenges/challenge';
+import { Challenge, Hint } from '@/lib/challenges/challenge';
 import initialCode from '@/lib/challenges/challenge-4/initialCode';
 import dependencies from '@/lib/challenges/challenge-3/dependencies';
 import {
@@ -33,6 +33,16 @@ const renderExtraContent = () => {
     </>
   );
 };
+
+const hints: Hint[] = [
+  {message: "The placeholder will disappear when you start typing. Make sure there's still something to tell the user what the text input is for."},
+  {message: "It doesn't have to be anything fancy, a text component will do."},
+  {message: "We don't want the screen reader to read out the label for the text input twice."},
+  {message: "You can hide text elements from the screen reader to prevent duplication."},
+  {message: "The React Native properties for hiding components are different on iOS and Android, so you'll need to handle both."},
+  {message: "Have a look through the React Native AMA Guidelines for forms.", link:"https://commerce.nearform.com/open-source/react-native-ama/guidelines/forms"}
+]
+
 const challenge: Challenge = {
   index: 4,
   title: 'Form feedback',
@@ -44,6 +54,7 @@ const challenge: Challenge = {
     labelNotDuplicatedOnScreenReaderStep,
     errorIsAnnouncedToScreenReaderStep
   ],
+  hints: hints,
   renderExtraContent,
   challengeSnack: {
     codeChangesDelay: 500,
