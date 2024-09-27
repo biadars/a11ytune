@@ -38,7 +38,7 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
       )}
       <h3 className="flex grow justify-center px-3 text-center">
         {hintIndex === undefined
-          ? <p>Do you need a hint?</p>
+          ? <p>Do you need a hint? <br/> Tap the arrow!</p>
           : renderHint(challenge.hints, hintIndex)
         }
       </h3>
