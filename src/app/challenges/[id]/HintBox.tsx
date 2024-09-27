@@ -13,9 +13,10 @@ const renderHint = (hints: Hint[], hintIndex: number) => {
 
   return (
     <>
-      <p>
+      <p className="break-words">
         {hint.message}
-        {hint.link && <a href={hint.link}> {hint.link}</a>}
+        <br/>
+        {hint.link && <a href={hint.link} className="break-all"> {hint.link}</a>}
       </p>
     </>
   );
@@ -28,7 +29,7 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
   }, [challenge]);
 
   return (
-    <div className="flex flex-row rounded border border-teal-900 p-3 mt-5 grid-cols-3">
+    <div className="flex flex-row items-center rounded border border-teal-900 p-3 mt-5 space-x-3">
       {hintIndex !== undefined && hintIndex > 0 && (
         <Button
           label={'<'}

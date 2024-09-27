@@ -51,8 +51,8 @@ export default function EditorTools({
 
   return (
     <>
-      <div className=" w-full flex flex-row mt-10 justify-between min-h-60">
-        <div className="w-8/12 flex flex-col justify-items-start min-h-60">
+      <div className="w-full flex flex-row mt-10 justify-between min-h-60 space-x-5">
+        <div className="w-2/3 flex flex-col justify-items-start min-h-60">
           <div className="mb-5">
             <h3 className="text-lg">Editor tools</h3>
           </div>
@@ -66,7 +66,7 @@ export default function EditorTools({
               onClick={runTests}
             />
           </div>
-          <HintBox challenge={challenge}/>
+          <HintBox challenge={challenge} />
           <div className="mt-5">
             {showTests &&
               testResults.map((step, index) => {
@@ -87,13 +87,15 @@ export default function EditorTools({
               })}
           </div>
         </div>
-        <SnackLink isOnline={snackState.online} link={snackState.url} />
-      </div>
-      {showChallengeCompleted && (
-        <div className="w-full mt-5">
-          <ChallengeCompleted challenge={challenge} />
+        <div className="max-w-1/3 flex flex-col items-end">
+          <SnackLink isOnline={snackState.online} link={snackState.url} />
         </div>
-      )}
-    </>
-  );
-}
+        </div>
+        {showChallengeCompleted && (
+          <div className="w-full mt-5">
+            <ChallengeCompleted challenge={challenge} />
+          </div>
+        )}
+      </>
+      );
+      }
