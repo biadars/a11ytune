@@ -41,6 +41,14 @@ export default function ChallengeEditor({
   return (
     <div className="w-full">
       <p>{challenge.description}</p>
+      <p>
+        Once you&apos;ve made some changes to the code below, you&apos;ll need
+        to check whether you&apos;ve fixed all the accessibility issues. Press
+        the &apos;Test my code&apos; button underneath the code editor to see
+        if your code solves these issues. You can also get extra hints down
+        there, scan a QR code to run your code in Expo Go, and reset the editor
+        if you want to get rid of the changes you made.
+      </p>
       <ReactCodeMirror
         value={files['App.tsx'].contents as string}
         extensions={[javascript({ jsx: true, typescript: true })]}
