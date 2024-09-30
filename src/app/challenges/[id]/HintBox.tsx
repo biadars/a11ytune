@@ -29,7 +29,7 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
   }, [challenge]);
 
   return (
-    <div className="flex flex-row items-center rounded border border-teal-900 p-3 mt-5 space-x-3">
+    <div className="flex flex-row items-center rounded border border-teal-900 p-3 mt-5 space-x-3 overflow-x-auto">
       {hintIndex !== undefined && hintIndex > 0 && (
         <Button
           label={'<'}
