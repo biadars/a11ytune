@@ -20,3 +20,8 @@ export const findAllIconComponents = (code: string) => {
 export const findAllTextInputs = (code: string) => {
   return code.match(/<TextInput[\s\S]*?\/>/gm) ?? [];
 };
+
+export const findTouchableOpacityOpeningTag = (code: string) => {
+  const touchableOpacityTag = code.match(/<TouchableOpacity[\s\S]*?>/gm)
+  return touchableOpacityTag ? touchableOpacityTag[0] : ''
+}
