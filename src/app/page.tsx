@@ -55,6 +55,9 @@ export default function Home() {
             What do you need to get started
           </h2>
           <ul className="list-disc ml-5 mt-5 mb-10">
+            <li>
+              A laptop to make changes to the code in each of the challenges
+            </li>
             <li>A phone with
               <a href="https://expo.dev/go"> Expo Go </a>
               installed
@@ -64,9 +67,9 @@ export default function Home() {
               features quietly
             </li>
           </ul>
-            <h2 className="font-bold font-mono text-gray-100 text-lg">
-              A couple of quick notes before you start
-            </h2>
+          <h2 className="font-bold font-mono text-gray-100 text-lg">
+            A couple of quick notes before you start
+          </h2>
           <ul className="list-disc ml-5 mt-5 mb-10">
             <li>
               In each of the challenges, you&apos;ll need to make some edits to
