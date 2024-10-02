@@ -23,5 +23,5 @@ export const findAllTextInputs = (code: string) => {
 
 export const findTouchableOpacityOpeningTag = (code: string) => {
   const touchableOpacityTag = code.match(/<TouchableOpacity[\s\S]*?>/gm)
-  return touchableOpacityTag ? touchableOpacityTag[0] : ''
+  return touchableOpacityTag ? touchableOpacityTag[0] : undefined
 }

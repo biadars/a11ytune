@@ -6,6 +6,9 @@ export const containsAnAccessibilityLabelForEachStoreOnTouchableOpacity = (code:
 
   return allButtons.every((button) => {
     const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
+    if (!touchableOpacityTag) {
+      return false
+    }
     return touchableOpacityTag.match(/accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm)
   }
   );
@@ -20,6 +23,10 @@ export const accessibilityLabelReferencesLocationAndOpeningTimes = (
   }
   const storeButton = allButtons[0];
   const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton)
+  if (!touchableOpacityTag) {
+    return false
+  }
+
   const allLabels = touchableOpacityTag.match(/accessibilityLabel\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
   if (!allLabels) {
     return false;
@@ -39,6 +46,10 @@ export const containsAccessibilityHintForEachStoreOnTouchableOpacity = (code: st
   const allButtons = findAllButtonComponents(code);
   return allButtons.every((button) => {
     const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
+      if (!touchableOpacityTag) {
+        return false
+      }
+
     return touchableOpacityTag.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm)
   }
   );
@@ -51,6 +62,10 @@ export const accessibilityHintReferencesAction = (code: string) => {
   }
   const storeButton = allButtons[0];
   const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton)
+  if (!touchableOpacityTag) {
+    return false
+  }
+
   const allHints = touchableOpacityTag.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
   if (!allHints) {
     return false;
