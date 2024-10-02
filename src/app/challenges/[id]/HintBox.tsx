@@ -32,6 +32,7 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
       {hintIndex !== undefined && hintIndex > 0 && (
         <Button
           label={'<'}
+          aria-label={'Previous hint button'}
           loading={false}
           onClick={() => setHintIndex(hintIndex - 1)}
         />
@@ -45,6 +46,7 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
       {(hintIndex === undefined || hintIndex < maxHintIndex) && (
         <Button
           label={'>'}
+          aria-label={'Next hint button'}
           loading={false}
           onClick={() =>
             setHintIndex(hintIndex === undefined ? 0 : hintIndex + 1)
