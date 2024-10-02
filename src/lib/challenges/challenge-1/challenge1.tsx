@@ -42,7 +42,8 @@ const renderExtraContent = () => {
 const hints: Hint[] = [
   {message: "Have a look at the \"Accessibility\" section of the React Native docs.", link:"https://reactnative.dev/docs/accessibility"},
   {message: "There's two ways to describe a component's role to the screen reader. You may need to add both!"},
-  {message: "Have a look at all of the roles which a component could have. We want to make sure any we've used are described."}
+  {message: "Have a look at all of the roles which a component could have. We want to make sure any we've used are described."},
+  {message: "The two different role descriptions take slightly different names for a heading (annoyingly!). Check the docs to make sure you're using the correct one for each."}
 ]
 
 const challenge: Challenge = {

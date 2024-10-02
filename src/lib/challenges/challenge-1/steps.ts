@@ -10,10 +10,10 @@ const whoAreWeHasHeadingRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/role\s*=\s*{?\s*["']header["']\s*}?/gm);
+  return !!findUsHeading?.match(/role\s*=\s*{?\s*["']heading["']\s*}?/gm);
 };
 
-const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
+const whoAreWeHasHeaderAccessibilityRole = (code: string) => {
   const textEntries = findAllTextComponents(code);
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
@@ -56,18 +56,18 @@ const browseHasButtonRole = (code: string) => {
 };
 
 export const containsHeaderRoleStep: ChallengeStep = {
-  successMessage: "Found 'Who are we' header",
-  failureMessage: "Could not find 'Who are we' header",
+  successMessage: "Found 'Who are we' heading",
+  failureMessage: "Could not find 'Who are we' heading",
   test: (code) =>
-    whoAreWeHasHeadingRole(code) || whoAreWeHasHeadingAccessibilityRole(code)
+    whoAreWeHasHeadingRole(code) || whoAreWeHasHeaderAccessibilityRole(code)
 };
 
 export const containsBothRoleAndAccessibilityRoleForHeaderStep: ChallengeStep =
   {
-    successMessage: 'Header has both role and accessibility role',
-    failureMessage: 'Header does not have both role and accessibility role',
+    successMessage: 'Heading has both correct role and accessibility role',
+    failureMessage: 'Heading does not have both correct role and accessibility role',
     test: (code) =>
-      whoAreWeHasHeadingRole(code) && whoAreWeHasHeadingAccessibilityRole(code)
+      whoAreWeHasHeadingRole(code) && whoAreWeHasHeaderAccessibilityRole(code)
   };
 
 export const containsLinkRoleStep: ChallengeStep = {
