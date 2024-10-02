@@ -41,7 +41,7 @@ export default function ChallengeEditor({
   return (
     <div className="w-full">
       <p>{challenge.description}</p>
-      <p>
+      {challenge.index === 1 && <p>
         Once you&apos;ve made some changes to the code below, you&apos;ll need
         to check whether you&apos;ve fixed all the accessibility issues. Press
         the &apos;Test my code&apos; button underneath the code editor to see
@@ -51,7 +51,7 @@ export default function ChallengeEditor({
         you want to get rid of the changes you made. For help on using a screen
         reader on your device, see
         <a href={'https://www.uswitch.com/mobiles/guides/screen-reader-accessibility-everything-you-need-to-know/'}> this guide</a>.
-      </p>
+      </p>}
       <ReactCodeMirror
         value={files['App.tsx'].contents as string}
         extensions={[javascript({ jsx: true, typescript: true })]}
