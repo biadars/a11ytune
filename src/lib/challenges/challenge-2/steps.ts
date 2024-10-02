@@ -6,10 +6,7 @@ export const containsAnAccessibilityLabelForEachStoreOnTouchableOpacity = (code:
 
   return allButtons.every((button) => {
     const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
-    if (!touchableOpacityTag) {
-      return false
-    }
-    return touchableOpacityTag.match(/accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm)
+    return !!touchableOpacityTag?.match(/accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm)
   }
   );
 };
@@ -46,11 +43,7 @@ export const containsAccessibilityHintForEachStoreOnTouchableOpacity = (code: st
   const allButtons = findAllButtonComponents(code);
   return allButtons.every((button) => {
     const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
-      if (!touchableOpacityTag) {
-        return false
-      }
-
-    return touchableOpacityTag.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm)
+    return !!touchableOpacityTag?.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm)
   }
   );
 };
