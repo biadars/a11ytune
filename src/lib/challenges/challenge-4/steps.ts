@@ -27,12 +27,16 @@ const textInputHasAccessibilityLabel = (code: string) => {
 
 const labelHiddenOnAndroidScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/importantForAccessibility\s*=\s*{?\s*['"`]no["'`]\s*}?/gm);
+  return !!label?.match(
+    /importantForAccessibility\s*=\s*{?\s*['"`]no["'`]\s*}?/gm
+  );
 };
 
 const labelHiddenOniOSScreenReader = (code: string) => {
   const label = getSeparateLabel(code);
-  return !!label?.match(/accessibilityElementsHidden\s*=\s*{?\s*['"`]true['"`]\s*}?/gm);
+  return !!label?.match(
+    /accessibilityElementsHidden\s*=\s*{?\s*['"`]true['"`]\s*}?/gm
+  );
 };
 
 const errorIsAnnouncedToScreenReader = (code: string) => {

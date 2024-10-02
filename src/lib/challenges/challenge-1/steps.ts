@@ -1,6 +1,7 @@
 import {
   findAllButtonComponents,
-  findAllTextComponents
+  findAllTextComponents,
+  findTouchableOpacityOpeningTag
 } from '@/lib/challenges/codeFinders';
 import { ChallengeStep } from '@/lib/challenges/challenge';
 
@@ -17,15 +18,23 @@ const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/accessibilityRole\s*=\s*{?\s*["']header["']\s*}?/gm);
+  return !!findUsHeading?.match(
+    /accessibilityRole\s*=\s*{?\s*["']header["']\s*}?/gm
+  );
 };
 
 const hereHasLinkRole = (code: string) => {
   const buttons = findAllButtonComponents(code);
   const hereLink = buttons.find((entry) => entry.includes('here'));
+  if (!hereLink) {
+    return false;
+  }
+  const touchableOpacityTag = findTouchableOpacityOpeningTag(hereLink);
   return (
-    !!hereLink?.match(/role\s*=\s*{?\s*["']link["']\s*}?/gm) &&
-    !!hereLink?.match(/accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm)
+    !!touchableOpacityTag?.match(/role\s*=\s*{?\s*["']link["']\s*}?/gm) &&
+    !!touchableOpacityTag?.match(
+      /accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm
+    )
   );
 };
 
@@ -34,9 +43,15 @@ const browseHasButtonRole = (code: string) => {
   const browseButton = buttons.find((entry) =>
     entry.includes('Browse our records')
   );
+  if (!browseButton) {
+    return false;
+  }
+  const touchableOpacityTag = findTouchableOpacityOpeningTag(browseButton);
   return (
-    !!browseButton?.match(/role\s*=\s*{?\s*["']button["']\s*}?/gm) &&
-    !!browseButton?.match(/accessibilityRole\s*=\s*{?\s*["']button["']\s*}?/gm)
+    !!touchableOpacityTag?.match(/role\s*=\s*{?\s*["']button["']\s*}?/gm) &&
+    !!touchableOpacityTag?.match(
+      /accessibilityRole\s*=\s*{?\s*["']button["']\s*}?/gm
+    )
   );
 };
 
