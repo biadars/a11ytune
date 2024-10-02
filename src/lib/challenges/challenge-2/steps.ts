@@ -1,14 +1,20 @@
-import { findAllButtonComponents, findTouchableOpacityOpeningTag } from '@/lib/challenges/codeFinders';
+import {
+  findAllButtonComponents,
+  findTouchableOpacityOpeningTag
+} from '@/lib/challenges/codeFinders';
 import { ChallengeStep } from '@/lib/challenges/challenge';
 
-export const containsAnAccessibilityLabelForEachStoreOnTouchableOpacity = (code: string) => {
+export const containsAnAccessibilityLabelForEachStoreOnTouchableOpacity = (
+  code: string
+) => {
   const allButtons = findAllButtonComponents(code);
 
   return allButtons.every((button) => {
-    const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
-    return !!touchableOpacityTag?.match(/accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm)
-  }
-  );
+    const touchableOpacityTag = findTouchableOpacityOpeningTag(button);
+    return !!touchableOpacityTag?.match(
+      /accessibilityLabel\s*=\s*[{"'`].*["'`}]/gm
+    );
+  });
 };
 
 export const accessibilityLabelReferencesLocationAndOpeningTimes = (
@@ -19,12 +25,14 @@ export const accessibilityLabelReferencesLocationAndOpeningTimes = (
     return false;
   }
   const storeButton = allButtons[0];
-  const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton)
+  const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton);
   if (!touchableOpacityTag) {
-    return false
+    return false;
   }
 
-  const allLabels = touchableOpacityTag.match(/accessibilityLabel\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
+  const allLabels = touchableOpacityTag.match(
+    /accessibilityLabel\s*=\s*{?\s*["'`].*["'`]\s*}?/gm
+  );
   if (!allLabels) {
     return false;
   }
@@ -39,13 +47,16 @@ export const accessibilityLabelReferencesLocationAndOpeningTimes = (
   return accessibilityLabelContainsAddress && accessibilityLabelContainsHours;
 };
 
-export const containsAccessibilityHintForEachStoreOnTouchableOpacity = (code: string) => {
+export const containsAccessibilityHintForEachStoreOnTouchableOpacity = (
+  code: string
+) => {
   const allButtons = findAllButtonComponents(code);
   return allButtons.every((button) => {
-    const touchableOpacityTag = findTouchableOpacityOpeningTag(button)
-    return !!touchableOpacityTag?.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm)
-  }
-  );
+    const touchableOpacityTag = findTouchableOpacityOpeningTag(button);
+    return !!touchableOpacityTag?.match(
+      /accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm
+    );
+  });
 };
 
 export const accessibilityHintReferencesAction = (code: string) => {
@@ -54,12 +65,14 @@ export const accessibilityHintReferencesAction = (code: string) => {
     return false;
   }
   const storeButton = allButtons[0];
-  const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton)
+  const touchableOpacityTag = findTouchableOpacityOpeningTag(storeButton);
   if (!touchableOpacityTag) {
-    return false
+    return false;
   }
 
-  const allHints = touchableOpacityTag.match(/accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm);
+  const allHints = touchableOpacityTag.match(
+    /accessibilityHint\s*=\s*{?\s*["'`].*["'`]\s*}?/gm
+  );
   if (!allHints) {
     return false;
   }
@@ -73,14 +86,15 @@ export const accessibilityHintReferencesAction = (code: string) => {
     accessibilityHint.includes('displays') ||
     accessibilityHint.includes('will display') ||
     accessibilityHint.includes('navigates') ||
-    accessibilityHint.includes('will navigate')||
+    accessibilityHint.includes('will navigate') ||
     accessibilityHint.includes('gives' && 'information')
   );
 };
 
 export const allStoresHaveAccessibilityLabels: ChallengeStep = {
   successMessage: 'Found accessibility label on the link for each store',
-  failureMessage: 'Could not find accessibility label on the link for each store',
+  failureMessage:
+    'Could not find accessibility label on the link for each store',
   test: containsAnAccessibilityLabelForEachStoreOnTouchableOpacity
 };
 

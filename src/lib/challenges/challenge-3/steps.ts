@@ -12,10 +12,11 @@ const containsAccessibilityState = (code: string) => {
   }
 
   const minusButton = allButtons[0];
-  if(!minusButton) {
-    return false
+  if (!minusButton) {
+    return false;
   }
-  const touchableOpacityOpeningTag = findTouchableOpacityOpeningTag(minusButton)
+  const touchableOpacityOpeningTag =
+    findTouchableOpacityOpeningTag(minusButton);
   return !!touchableOpacityOpeningTag?.match(
     /accessibilityState\s*=\s*{\s*\(?\s*{\s*disabled:\s*\(?\s*quantity\s*===\s*0\s*\)?\s*}\s*\)?\s*}/gm
   );

@@ -18,19 +18,23 @@ const whoAreWeHasHeadingAccessibilityRole = (code: string) => {
   const findUsHeading = textEntries.find((entry) =>
     entry.includes('Who are we')
   );
-  return !!findUsHeading?.match(/accessibilityRole\s*=\s*{?\s*["']header["']\s*}?/gm);
+  return !!findUsHeading?.match(
+    /accessibilityRole\s*=\s*{?\s*["']header["']\s*}?/gm
+  );
 };
 
 const hereHasLinkRole = (code: string) => {
   const buttons = findAllButtonComponents(code);
-  const hereLink = buttons.find((entry) => entry.includes('here'))
+  const hereLink = buttons.find((entry) => entry.includes('here'));
   if (!hereLink) {
-    return false
+    return false;
   }
   const touchableOpacityTag = findTouchableOpacityOpeningTag(hereLink);
   return (
     !!touchableOpacityTag?.match(/role\s*=\s*{?\s*["']link["']\s*}?/gm) &&
-    !!touchableOpacityTag?.match(/accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm)
+    !!touchableOpacityTag?.match(
+      /accessibilityRole\s*=\s*{?\s*["']link["']\s*}?/gm
+    )
   );
 };
 
@@ -40,12 +44,14 @@ const browseHasButtonRole = (code: string) => {
     entry.includes('Browse our records')
   );
   if (!browseButton) {
-    return false
+    return false;
   }
-  const touchableOpacityTag = findTouchableOpacityOpeningTag(browseButton)
+  const touchableOpacityTag = findTouchableOpacityOpeningTag(browseButton);
   return (
     !!touchableOpacityTag?.match(/role\s*=\s*{?\s*["']button["']\s*}?/gm) &&
-    !!touchableOpacityTag?.match(/accessibilityRole\s*=\s*{?\s*["']button["']\s*}?/gm)
+    !!touchableOpacityTag?.match(
+      /accessibilityRole\s*=\s*{?\s*["']button["']\s*}?/gm
+    )
   );
 };
 

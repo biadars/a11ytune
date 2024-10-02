@@ -25,4 +25,4 @@ export type Challenge = {
 export type Hint = {
   message: string;
   link?: string;
-}
+};

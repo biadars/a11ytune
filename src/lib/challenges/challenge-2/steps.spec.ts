@@ -2,8 +2,8 @@ import { describe, expect, it } from '@jest/globals';
 import {
   accessibilityHintReferencesAction,
   accessibilityLabelReferencesLocationAndOpeningTimes,
-  containsAccessibilityHintForEachStore,
-  containsAnAccessibilityLabelForEachStore
+  containsAccessibilityHintForEachStoreOnTouchableOpacity,
+  containsAnAccessibilityLabelForEachStoreOnTouchableOpacity
 } from '@/lib/challenges/challenge-2/steps';
 
 describe('containsAnAccessibilityRoleForEachStore', () => {
@@ -12,7 +12,9 @@ describe('containsAnAccessibilityRoleForEachStore', () => {
     const code = `<TouchableOpacity>A11yTune Leeds</TouchableOpacity>`;
 
     // then
-    expect(containsAnAccessibilityLabelForEachStore(code)).toBeFalsy();
+    expect(
+      containsAnAccessibilityLabelForEachStoreOnTouchableOpacity(code)
+    ).toBeFalsy();
   });
 
   it('Returns false if one of the buttons is missing an accessibility label', () => {
@@ -23,7 +25,9 @@ describe('containsAnAccessibilityRoleForEachStore', () => {
     `;
 
     // then
-    expect(containsAnAccessibilityLabelForEachStore(code)).toBeFalsy();
+    expect(
+      containsAnAccessibilityLabelForEachStoreOnTouchableOpacity(code)
+    ).toBeFalsy();
   });
 
   it('Returns true if all buttons have accessibility labels', () => {
@@ -34,7 +38,9 @@ describe('containsAnAccessibilityRoleForEachStore', () => {
     `;
 
     // then
-    expect(containsAnAccessibilityLabelForEachStore(code)).toBeTruthy();
+    expect(
+      containsAnAccessibilityLabelForEachStoreOnTouchableOpacity(code)
+    ).toBeTruthy();
   });
 });
 
@@ -80,13 +86,15 @@ describe('accessibilityLabelReferencesLocationAndOpeningTimes', () => {
   });
 });
 
-describe('containsAccessibilityHintForEachStore', () => {
+describe('containsAccessibilityHintForEachStoreOnTouchableOpacity', () => {
   it('Returns false if there are no accessibility hints', () => {
     // given
     const code = `<TouchableOpacity>A11yTune Leeds</TouchableOpacity>`;
 
     // then
-    expect(containsAccessibilityHintForEachStore(code)).toBeFalsy();
+    expect(
+      containsAccessibilityHintForEachStoreOnTouchableOpacity(code)
+    ).toBeFalsy();
   });
 
   it('Returns false if one of the buttons is missing an accessibility hint', () => {
@@ -97,7 +105,9 @@ describe('containsAccessibilityHintForEachStore', () => {
     `;
 
     // then
-    expect(containsAccessibilityHintForEachStore(code)).toBeFalsy();
+    expect(
+      containsAccessibilityHintForEachStoreOnTouchableOpacity(code)
+    ).toBeFalsy();
   });
 
   it('Returns true if all buttons have accessibility hints', () => {
@@ -108,7 +118,9 @@ describe('containsAccessibilityHintForEachStore', () => {
     `;
 
     // then
-    expect(containsAccessibilityHintForEachStore(code)).toBeTruthy();
+    expect(
+      containsAccessibilityHintForEachStoreOnTouchableOpacity(code)
+    ).toBeTruthy();
   });
 });
 
