@@ -33,19 +33,21 @@ export default function HintBox({ challenge }: { challenge: Challenge }) {
       {hintIndex !== undefined && hintIndex > 0 && (
         <Button
           label={'<'}
+          aria-label={'Previous hint button'}
           loading={false}
           onClick={() => setHintIndex(hintIndex - 1)}
         />
       )}
       <h3 className="flex grow justify-center px-3 text-center">
         {hintIndex === undefined
-          ? <p>Do you need a hint?</p>
+          ? <p>Do you need a hint? <br/> Tap the arrow!</p>
           : renderHint(challenge.hints, hintIndex)
         }
       </h3>
       {(hintIndex === undefined || hintIndex < maxHintIndex) && (
         <Button
           label={'>'}
+          aria-label={'Next hint button'}
           loading={false}
           onClick={() =>
             setHintIndex(hintIndex === undefined ? 0 : hintIndex + 1)
