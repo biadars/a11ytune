@@ -20,6 +20,7 @@ export type Challenge = {
   steps: ChallengeStep[];
   hints: Hint[];
   renderExtraContent: () => React.JSX.Element;
+  requiresUserDefinedStrings?: boolean
 };
 
 export type Hint = {
