@@ -68,7 +68,8 @@ const challenge: Challenge = {
       }
     },
     dependencies
-  }
+  },
+  requiresUserDefinedStrings: true
 };
 
 export default challenge;

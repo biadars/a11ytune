@@ -37,18 +37,17 @@ export default function ChallengeEditor({
   }, [snack]);
 
   const { files } = snackState;
-  const challengesWithUserDefinedStrings = [2, 4]
 
   return (
     <div className="w-full">
       <p>{challenge.description}</p>
-      {challengesWithUserDefinedStrings.includes(challenge.index) && (
+      {challenge.requiresUserDefinedStrings && (
         <p>
           Please note that the code tests on this challenge won&apos;t recognise
           string concatenation with &apos;+&apos;, instead it is looking for
           string interpolation (See:{' '}
           <a href={'https://www.w3schools.com/js/js_string_templates.asp'}>
-            https://www.w3schools.com/js/js_string_templates.asp
+            string interpolation
           </a>
           )!
         </p>
